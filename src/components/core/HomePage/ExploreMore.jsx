@@ -8,7 +8,7 @@ const tabsName = [
     "New to coding",
     "Most popular",
     "Skills paths",
-    "Carrer paths"
+    "Career paths"
 ]
 
 const ExploreMore = () => {

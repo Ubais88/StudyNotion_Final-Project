@@ -14,18 +14,18 @@ const timeline = [
   },
   {
     Logo: Logo2,
-    Heading:"Leadership",
-    Description:"Fully commited to success company",
+    Heading:"Responsibility",
+    Description:"Students will always be our top priority",
   },
   {
     Logo: Logo3,
-    Heading:"Leadership",
-    Description:"Fully commited to success company",
+    Heading:"Flexibility",
+    Description:"The ability to switch is an important skills",
   },
   {
     Logo: Logo4,
-    Heading:"Leadership",
-    Description:"Fully commited to success company",
+    Heading:"Solve the problem",
+    Description:"Code your way to a solution",
   },
 ]
 
@@ -37,6 +37,7 @@ const TimeLineSection = () => {
           {
             timeline.map( (element , index) => {
                 return (
+                  <div className="flex flex-col gap-3" key={index}>
                   <div className='flex flex-row gap-6 ' key={index}>
                     <div className='w-[50px] h-[50px] bg-white flex items-center'>
                       <img src={element.Logo} />
@@ -46,12 +47,17 @@ const TimeLineSection = () => {
                       <p className='text-base '>{element.Description}</p>
                     </div>
                   </div>
-                )
-            } )
-          }
+                    <div
+                      className={` ${
+                      timeline.length - 1 === index ? "hidden" : "lg:block"
+                      }  h-14 border-dotted border-r border-richblack-100 bg-richblack-400/0 w-[12px]`}
+                    ></div>
+                  </div>
+                );
+            })}
         </div>
 
-        <div className='relative shadow-blue-200'>
+        <div className='relative w-fit h-fit shadow-blue-200'>
           <img src={TimeLineImage} alt='TimeLineImage'
             className='shadow-white object-cover h-fit '
           />
