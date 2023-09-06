@@ -233,13 +233,61 @@ exports.login = async (req , res) => {
 exports.changePassword = async (req , res ) => {
     try{ 
         // fetch data from req body
-        // get old password , new password , conform new password
-        // validation 
-        // update password wtih new password
-        // senmail password updated
-        // return response
-    }
-    catch(error){
+        const userDetails = await User.findById(req.user.id);
 
+        // get old password , new password , conform new password
+        const { oldPassword, newPassword  , confirmPassword} = req.body;
+
+        // validation 
+        const isPasswordMatch = await bcrypt.compare(
+            oldPassword,
+            userDetails.password,
+        );
+
+        if(!isPasswordMatch){
+            // If old password does not match, return a 401 (Unauthorized) error
+            return res.status(401).json({
+                success:false,
+                message: "The password is incorrect"
+            })
+        }
+
+        if(newPassword !== confirmPassword){
+            return res.status(401).json({
+                success:false,
+                message: "Password not match"
+            })
+        }
+
+        // update password wtih new password
+        const encryptedPassword = await bcrypt.hash(newPassword , 10);
+        const updateUserDetails = await User.findByIdAndUpdate(
+            req.user.id,
+            { password: encryptedPassword},
+            {new:true},
+        );
+
+        // sendmail password updated mail
+
+            // left tod
+
+
+
+        // return response
+        return res.status(200).json(
+            { 
+                success: true, 
+                message: "Password updated successfully" 
+            });
+	}
+
+    catch(error){
+        // If there's an error updating the password, log the error and return a 500 (Internal Server Error) error
+		console.error("Error occurred while updating password:", error);
+		return res.status(500).json({
+			success: false,
+			message: "Error occurred while updating password",
+			error: error.message,
+		});
     }
 }
