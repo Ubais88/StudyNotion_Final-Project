@@ -48,7 +48,7 @@ exports.createSection = async (req, res) => {
     }
 }
 
-
+// update section
 exports.updateSection = async (req, res) => {
     try{
         // data to update
@@ -80,7 +80,7 @@ exports.updateSection = async (req, res) => {
     }
 }
 
-
+// delete section
 exports.deleteSection = async (req, res) => {
     try{
         // get section id - assuming id we are sending in params
@@ -88,6 +88,8 @@ exports.deleteSection = async (req, res) => {
 
         // delete section by finding by id
         await Section.findByIdAndDelete({sectionId: sectionId})
+        // -----Todo-----need to delete entry from course schema ?
+
         // return response
         return res.status(200).json({
             success:success,
