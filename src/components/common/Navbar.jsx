@@ -10,17 +10,6 @@ import { apiConnector } from '../../services/apiconnector'
 import { categories } from '../../services/apis'
 
 
-const subLinks = [
-    {
-        title:"python",
-        link:"/catalog/paython",
-    },
-    {
-        title:"web Developer",
-        link:"/catalog/develop",
-    },
-]
-
 
 
 const Navbar = () => {
@@ -30,22 +19,21 @@ const Navbar = () => {
 
     const location = useLocation()
 
-    // const[subLinks, setSubLinks] = useState([])
+    const [subLinks, setSublinks] = useState([]);
+    const fetchSublinks = async () => {
+        try {
+            const result = await apiConnector("GET", categories.CATEGORIES_API);
+            console.log("printing sublinks ", result)
+                setSublinks(result?.data?.data);
+            }
+        catch(error){
+                console.log("Could not fetched the category list", error)
+            }
+        }
 
-    // const fetchSublinks = async() => {
-    //         try{
-    //             const result = await apiConnector("GET" ,categories.CATEGORIES_API)
-    //             console.log("printing sublinks ", result)
-    //             setSubLinks(result.data.data)
-    //         }
-    //         catch(error){
-    //             console.log("Could not fetched the category list")
-    //         }
-    //     }
-
-    // useEffect(() => {
-    //     fetchSublinks();
-    // }, [] )
+        useEffect(() => {
+            fetchSublinks();
+        }, [])
 
     const matchRoute = (route) => {
         return matchPath({path:route} , location.pathname)

@@ -4,7 +4,7 @@ import SignupForm from "./SignupForm"
 import Frame from "../../../assets/Images/frame.png"
 
 
-const Template = ({title,desc1,desc2,image , formtype}) => {
+const Template = ({ title, desc1, desc2, image, formtype }) => {
   return (
     <div className='w-11/12 flex justify-between max-w-[1060px] py-12 mx-auto gap-x-12 gap-y-0'
     >
@@ -28,7 +28,7 @@ const Template = ({title,desc1,desc2,image , formtype}) => {
                 height={504}
                 loading='lazy'
             />
-            <img src={image} alt="image"  
+            <img src={image} alt="Logo"  
                 width={558}
                 height={504}
                 loading='lazy'  
