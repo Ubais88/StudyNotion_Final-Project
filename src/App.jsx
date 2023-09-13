@@ -7,6 +7,7 @@ import Navbar from "./components/common/Navbar";
 import ForgotPassword from "./pages/ForgotPassword";
 import OpenRoute from "./components/core/Auth/OpenRoute";
 import UpdatePassword from "./pages/ResetPassword";
+import VerifyOTP from "./pages/VerifyOTP"
 
 function App() {
   return (
@@ -16,47 +17,57 @@ function App() {
       <Routes>
 
         <Route 
-            path="/" 
-            element={
-              <OpenRoute>
-                <Home/>
-              </OpenRoute>
-            }
+          path="/" 
+          element={
+            <OpenRoute>
+              <Home/>
+            </OpenRoute>
+          }
         />
 
         <Route 
-            path="/signup" 
-            element={
-              <OpenRoute>
-                <Signup/>
-              </OpenRoute>}
+          path="/signup" 
+          element={
+            <OpenRoute>
+              <Signup/>
+            </OpenRoute>
+          }
         />
 
         <Route 
-            path="/login" 
-            element={
-              <OpenRoute>
-                <Login/>
-              </OpenRoute>
-            }
+          path="/login" 
+          element={
+            <OpenRoute>
+              <Login/>
+            </OpenRoute>
+          }
         />
 
         <Route 
-            path="/forgot-password" 
-            element={
-              <OpenRoute>
-                <ForgotPassword/>
-              </OpenRoute>
-            }
+          path="/forgot-password" 
+          element={
+            <OpenRoute>
+              <ForgotPassword/>
+            </OpenRoute>
+          }
         />
 
         <Route 
-            path="/update-password/:id" 
-            element={
-              <OpenRoute>
-                <UpdatePassword/>
-              </OpenRoute>
-            }
+          path="/update-password/:id" 
+          element={
+            <OpenRoute>
+              <UpdatePassword/>
+            </OpenRoute>
+          }
+        />
+
+        <Route 
+          path="/verify-email" 
+          element={
+            <OpenRoute>
+              <VerifyOTP/>
+            </OpenRoute>
+          }
         />
 
       </Routes>

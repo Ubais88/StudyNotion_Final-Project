@@ -39,7 +39,7 @@ export function sendOtp(email, navigate) {
       toast.error(error?.response?.data?.message)
     }
     dispatch(setLoading(false))
-    // toast.dismiss(toastId)
+    toast.dismiss(toastId)
   }
 }
 
@@ -119,17 +119,16 @@ export function login(email, password, navigate) {
   }
 }
 
-// export function logout(navigate){
-//     return (dispatch) => {
-//         dispatch(setToken(null))
-//         dispatch(setUser(null))
-//         dispatch(resetCart())
-//         localStorage.removeItem("token")
-//         localStorage.removeItem("user")
-//         toast.success("Logged Out")
-//         navigate("/")
-//     }
-// }
+export function logout(navigate){
+    return (dispatch) => {
+        dispatch(setToken(null))
+        dispatch(setUser(null))
+        localStorage.removeItem("token")
+        localStorage.removeItem("user")
+        toast.success("Logged Out")
+        navigate("/")
+    }
+}
 
 export function forgotPassword(email, setEmailSent) {
 

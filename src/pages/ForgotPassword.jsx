@@ -18,11 +18,11 @@ const {loading}= useSelector((state)=>state.auth)
   return (
     <div className='grid min-h-[calc(100vh-3.5rem)] place-items-center'>
             {
-                loading?(<div class="custom-loader"></div>):
+                loading ? (<div>Loading...</div>) :
                 (<div className='max-w-[500px] p-4 lg:p-8'>
                     <h1 className='text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5'>
                         {
-                            !emailSent?("Reset your password"):"Check email"
+                            !emailSent ? ("Reset your password") : "Check email"
                         }
                     </h1>
                     <p className='my-4 text-[1.125rem] leading-[1.625rem] text-richblack-100'>

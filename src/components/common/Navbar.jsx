@@ -5,7 +5,7 @@ import { Link, matchPath, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { IoIosArrowDropdownCircle } from 'react-icons/io'
-import ProfileDropDown from "../core/Auth/ProfileDropDown"
+import ProfileDropdown from "../core/Auth/ProfileDropDown"
 import { apiConnector } from '../../services/apiconnector'
 import { categories } from '../../services/apis'
 
@@ -117,7 +117,12 @@ const Navbar = () => {
                     )
                 }
                 {
-                    token !== null && <ProfileDropDown/>
+                    token !== null && (
+                        <div className=' mt-2' >
+                            <p className=' text-richblack-50 text-center mb-2'>Account</p>
+                            <ProfileDropdown />
+                        </div>
+                    )
                 }
             </div>
         </div>
