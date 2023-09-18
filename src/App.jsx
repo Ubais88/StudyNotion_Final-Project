@@ -9,6 +9,10 @@ import OpenRoute from "./components/core/Auth/OpenRoute";
 import UpdatePassword from "./pages/ResetPassword";
 import VerifyOTP from "./pages/VerifyOTP"
 import About from "./pages/About";
+import MyProfile from "./components/core/Dashboard/MyProfile";
+import Dashboard from "./pages/Dashboard";
+import PrivateRoute from "./components/core/Auth/PrivateRoute";
+import ErrorPage from "./pages/Error"
 
 function App() {
   return (
@@ -79,6 +83,28 @@ function App() {
             </OpenRoute>
           }
         />
+
+        {/* <Route
+          path="/contact"
+          element={<Contact/>}
+        /> */}
+
+        <Route
+          element={
+            <PrivateRoute>
+              <Dashboard/>
+            </PrivateRoute>
+          }
+        >
+          <Route path="/dashboard/my-profile" element={<MyProfile/>} />
+          {/* <Route path="/dashboard/settings" element={<Setting/>} /> */}
+        </Route>
+
+        
+          parchyi by mitraj/s  may more 
+
+        <Route path="*" element={<ErrorPage/>} />
+        
 
       </Routes>
 
