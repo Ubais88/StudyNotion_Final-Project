@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import ErrorPage from "./pages/Error"
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
+import Contact from "./pages/Contact"
 
 function App() {
   return (
@@ -85,10 +86,10 @@ function App() {
           }
         />
 
-        {/* <Route
+        <Route
           path="/contact"
           element={<Contact/>}
-        /> */}
+        />
 
         <Route
           element={

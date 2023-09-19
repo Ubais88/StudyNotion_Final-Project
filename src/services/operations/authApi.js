@@ -85,6 +85,8 @@ export function signUp(
   }
 }
 
+
+
 export function login(email, password, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...")
@@ -118,6 +120,8 @@ export function login(email, password, navigate) {
     toast.dismiss(toastId)
   }
 }
+
+
 
 export function logout(navigate){
     return (dispatch) => {
