@@ -13,6 +13,7 @@ import MyProfile from "./components/core/Dashboard/MyProfile";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import ErrorPage from "./pages/Error"
+import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
 
 function App() {
   return (
@@ -98,10 +99,9 @@ function App() {
         >
           <Route path="/dashboard/my-profile" element={<MyProfile/>} />
           {/* <Route path="/dashboard/settings" element={<Setting/>} /> */}
+          <Route path="/dashboard/enrolled-courses" element={<EnrolledCourses/>} />
         </Route>
 
-        
-          parchyi by mitraj/s  may more 
 
         <Route path="*" element={<ErrorPage/>} />
         
