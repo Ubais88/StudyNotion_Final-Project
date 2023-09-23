@@ -136,8 +136,8 @@ const CourseInformationForm = () => {
         console.log("BEFORE add course API call");
         console.log("PRINTING FORMDATA BEFORE", [...formData]);
         console.log("Token BEFORE", token);
-        // const result = await addCourseDetails(formData,token);
-        const result = "ubais"
+        const result = await addCourseDetails(formData,token);
+        // const result = "ubais"
         if(result) {
             dispatch(setStep(2));
             dispatch(setCourse(result));
