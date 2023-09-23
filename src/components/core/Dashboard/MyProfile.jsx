@@ -10,7 +10,7 @@ export default function MyProfile() {
   const navigate = useNavigate()
 
   return (
-    <>
+    <div className="w-full">
     
       <h1 className="mb-14 text-3xl font-medium text-richblack-5">
         My Profile
@@ -133,6 +133,6 @@ export default function MyProfile() {
 
       </div>
 
-    </>
+    </div>
   )
 }

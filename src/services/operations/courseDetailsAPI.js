@@ -88,6 +88,7 @@ export const addCourseDetails = async (data, token) => {
   let result = null
   const toastId = toast.loading("Loading...")
   try {
+    console.log("Try block")
     const response = await apiConnector("POST", CREATE_COURSE_API, data, {
       "Content-Type": "multipart/form-data",
       Authorization: `Bearer ${token}`,
@@ -98,8 +99,10 @@ export const addCourseDetails = async (data, token) => {
     }
     toast.success("Course Details Added Successfully")
     result = response?.data?.data
-  } catch (error) {
+  } 
+  catch (error) {
     console.log("CREATE COURSE API ERROR............", error)
+    console.log(error.message)
     toast.error(error.message)
   }
   toast.dismiss(toastId)
