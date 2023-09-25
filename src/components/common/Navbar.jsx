@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import ProfileDropDown from '../core/Auth/ProfileDropDown'
 import { categories } from '../../services/apis'
-import { apiConnector } from '../../services/apiconnector'
+import { apiconnector } from '../../services/apiconnector'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
@@ -35,7 +35,7 @@ const NavBar = ({ setProgress }) => {
     const [sublinks, setsublinks] = useState([]);
     const fetchSublinks = async () => {
         try {
-            const result = await apiConnector("GET", categories.CATEGORIES_API);
+            const result = await apiconnector("GET", categories.CATEGORIES_API);
             if (result?.data?.data?.length > 0) {
                 setsublinks(result?.data?.data);
             }
