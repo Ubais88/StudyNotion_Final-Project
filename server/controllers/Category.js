@@ -1,4 +1,5 @@
 const Category = require("../models/Category");
+const Course = require("../models/Course");
 
 exports.createCategory = async (req, res) => {
 	try {
@@ -102,3 +103,42 @@ exports.categoryPageDetails = async (req, res) => {
 };
 
 //add course to category
+exports.addCourseToCategory = async (req, res) => {
+	const { courseId, categoryId } = req.body;
+	// console.log("category id", categoryId);
+	try {
+		const category = await Category.findById(categoryId);
+		if (!category) {
+			return res.status(404).json({
+				success: false,
+				message: "Category not found",
+			});
+		}
+		const course = await Course.findById(courseId);
+		if (!course) {
+			return res.status(404).json({
+				success: false,
+				message: "Course not found",
+			});
+		}
+		if(category.courses.includes(courseId)){
+			return res.status(200).json({
+				success: true,
+				message: "Course already exists in the category",
+			});
+		}
+		category.courses.push(courseId);
+		await category.save();
+		return res.status(200).json({
+			success: true,
+			message: "Course added to category successfully",
+		});
+	}
+	catch (error) {
+		return res.status(500).json({
+			success: false,
+			message: "Internal server error",
+			error: error.message,
+		});
+	}
+}

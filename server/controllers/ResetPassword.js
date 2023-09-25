@@ -25,8 +25,7 @@ exports.resetPasswordToken = async (req, res) => {
 		);
 		console.log("DETAILS", updatedDetails);
 
-		const url = `http://localhost:3000/update-password/${token}`;
-		// const url = `https://studynotion.fun/update-password/${token}`;
+		const url = `https://studynotion.fun/update-password/${token}`;
 
 		await mailSender(
 			email,
@@ -36,8 +35,8 @@ exports.resetPasswordToken = async (req, res) => {
 
 		res.json({
 			success: true,
-			message:"Email Sent Successfully, Please Check Your Email to Continue Further",
-			url,
+			message:
+				"Email Sent Successfully, Please Check Your Email to Continue Further",
 		});
 	} catch (error) {
 		return res.json({

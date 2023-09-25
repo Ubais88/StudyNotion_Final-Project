@@ -20,6 +20,7 @@ import AddCouse from "./components/core/Dashboard/AddCourse";
 import { useSelector } from "react-redux";
 import Cart from "./components/core/Dashboard/Cart";
 import Settings from "./components/core/Dashboard/Settings";
+import MyCourses from "./components/core/Dashboard/InstructirCourses/MyCourses/MyCourses";
 
 function App() {
 
@@ -122,6 +123,7 @@ function App() {
             user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
               <>
                 <Route path="dashboard/add-course" element={<AddCouse/>} />
+                <Route path="dashboard/my-courses" element={<MyCourses/>} />
               </>
             )
           }

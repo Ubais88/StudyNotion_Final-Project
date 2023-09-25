@@ -1,6 +1,5 @@
 const Section = require("../models/Section");
 const Course = require("../models/Course");
-
 // CREATE a new section
 exports.createSection = async (req, res) => {
 	try {
@@ -71,15 +70,13 @@ exports.updateSection = async (req, res) => {
 			{ new: true }
 		);
 		const updatedCourse = await Course.findById(courseId).populate({ path: "courseContent", populate: { path: "subSection" } }).exec();
-
 		res.status(200).json({
 			success: true,
 			message: "Section updated successfully",
 			updatedCourse,
 
 		});
-	} 
-	catch (error) {
+	} catch (error) {
 		console.error("Error updating section:", error);
 		res.status(500).json({
 			success: false,

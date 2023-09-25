@@ -50,7 +50,7 @@ const RenderSteps = () => {
             {steps.map((item) => (
                 <>
                     <div key={item.id} className='flex md:min-w-[180px] flex-col items-start'>
-                        <p className=' ml-3  text-[10px] text-richblack-5'>{item.title}</p>
+                        <p className=' ml-3 md:ml-0 text-[10px] md:text-sm text-richblack-5'>{item.title}</p>
                     </div>
                 </>
             ))}
@@ -60,7 +60,7 @@ const RenderSteps = () => {
 
         {step === 1 && <CourseInformationForm />}
         {step === 2 && <CourseBuilderForm/>}
-        {step === 3 && <PublishCourse/>}
+        {step===3 && <PublishCourse/>}
     </>
   )
 }

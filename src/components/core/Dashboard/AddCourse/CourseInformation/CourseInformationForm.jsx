@@ -9,7 +9,7 @@ import { setStep, setCourse, setEditCourse} from '../../../../../slices/courseSl
 import IconBtn from '../../../../common/IconBtn';
 import { COURSE_STATUS } from '../../../../../utils/constants';
 import { toast } from 'react-hot-toast';
-import Upload from '../Upload'
+import Upload from './Upload'
 import ChipInput from './ChipInput';
 
 const CourseInformationForm = () => {
@@ -74,7 +74,6 @@ const CourseInformationForm = () => {
         if(editCourse) {
             if(isFormUpdated()) {
                 const currentValues = getValues();
-                
             const formData = new FormData();
 
             formData.append("courseId", course._id);
@@ -134,20 +133,16 @@ const CourseInformationForm = () => {
 
         setLoading(true);
         console.log("BEFORE add course API call");
-        console.log("PRINTING FORMDATA BEFORE", [...formData]);
-        console.log("Token BEFORE", token);
+        console.log("PRINTING FORMDATA", formData);
         const result = await addCourseDetails(formData,token);
-        // const result = "ubais"
         if(result) {
             dispatch(setStep(2));
             dispatch(setCourse(result));
         }
         setLoading(false);
         console.log("AFTER add course API call");
-        console.log("PRINTING FORMDATA AFTER", [...formData]);
+        console.log("PRINTING FORMDATA", [...formData]);
         console.log("PRINTING result", result);
-        console.log("Token After", token);
-
 
     }
 
@@ -241,7 +236,7 @@ const CourseInformationForm = () => {
             getValues = {getValues}
         />
 
-        {/* component for uploading and showing preview of media */}
+        {/*component for uploading and showing preview of media */}
         <Upload
             name={"courseImage"}
             label={"CourseImage"}
@@ -279,8 +274,7 @@ const CourseInformationForm = () => {
                 editCourse && (
                     <button
                     onClick={() => dispatch(setStep(2))}
-                    className='text-[10px] md:text-sm p-2 px-1 font-semibold rounded-md flex    
-                                items-center gap-x-2 bg-richblack-300'
+                    className=' text-[10px] md:text-sm p-2 px-1 font-semibold rounded-md flex items-center gap-x-2 bg-richblack-300'
                     >
                         Continue Without Saving
                     </button>
@@ -288,9 +282,8 @@ const CourseInformationForm = () => {
             }
 
             <IconBtn type={"submit"}
-                text={ !editCourse ? "Next" : "Save Changes" }
-            />
-
+                text={!editCourse ? "Next" : "Save Changes"}
+                />
         </div>
     </form>
   )

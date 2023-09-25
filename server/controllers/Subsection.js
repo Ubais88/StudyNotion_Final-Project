@@ -90,17 +90,9 @@ exports.updateSubSection = async (req,res) => {
 		},{ new: true });
 
 		
-		const updatedCourse = await Section.findById(courseId).populate({ 
-			path: "courseContent", 
-			populate: { path: "subSection" }
-		 }).exec();
-
+		const updatedCourse = await Course.findById(courseId).populate({ path: "courseContent", populate: { path: "subSection" } }).exec();
 		// Return the updated section in the response
-		return res.status(200).json({ 
-			success: true, 
-			data: updatedCourse 
-		});
-
+		return res.status(200).json({ success: true, data: updatedCourse });
 	} catch (error) {
 		// Handle any errors that may occur during the process
 		console.error("Error creating new sub-section:", error);
@@ -141,19 +133,10 @@ exports.deleteSubSection = async(req, res) => {
     }
 	await SubSection.findByIdAndDelete(subSectionId);
 	await Section.findByIdAndUpdate({_id:sectionId},{$pull:{subSection:subSectionId}},{new:true});
-	const updatedCourse = await Section.findById(courseId).populate({ 
-		path: "courseContent", 
-		populate: { path: "subSection" } 
-	}).exec();
-
-	return res.status(200).json({ 
-		success: true, 
-		message: "Sub-section deleted", 
-		data: updatedCourse 
-	});
+	const updatedCourse = await Course.findById(courseId).populate({ path: "courseContent", populate: { path: "subSection" } }).exec();
+	return res.status(200).json({ success: true, message: "Sub-section deleted", data: updatedCourse });
 		
-	} 
-	catch (error) {
+	} catch (error) {
 		// Handle any errors that may occur during the process
         console.error("Error deleting sub-section:", error);
         return res.status(500).json({
