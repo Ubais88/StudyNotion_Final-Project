@@ -1,51 +1,44 @@
 import React from 'react'
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom';
-import RenderSteps from '../AddCourse/RenderSteps';
-import { useEffect } from 'react';
 import { getFullDetailsOfCourse } from '../../../../services/operations/courseDetailsAPI';
-import { setCourse, setEditCourse } from '../../../../slices/courseSlice';
+import { setCourse, setEditCourse, setStep } from '../../../../slices/courseSlice';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import RenderSteps from '../AddCourse/RenderSteps';
 
 const EditCourse = () => {
-
-    const dispatch = useDispatch();
-    const {courseId} = useParams();
+    const {token} = useSelector((state) => state.auth);
     const {course} = useSelector((state) => state.course);
-    const [loading , setLoading] = useState(false);
-    const {token } = useSelector((state) => state.auth); 
+    const {courseId} = useParams();
+    const [loading, setLoading] = useState(false);
+    const dispatch = useDispatch();
 
 
     useEffect(() => {
-        const populateCourseDetails = async () => {
+        const popualteCourse = async () => {
             setLoading(true);
-            const result  = await getFullDetailsOfCourse(courseId , token);
-
-            if(result?.courseDetails){
+            const result = await getFullDetailsOfCourse(courseId, token);
+            if(result?.courseDetails) {
+                dispatch(setCourse(result.courseDetails));
+                console.log("result",course);
                 dispatch(setEditCourse(true));
-                dispatch(setCourse(result?.courseDetails))
+                dispatch(setStep(1));
             }
             setLoading(false);
         }
-
-        populateCourseDetails();
-    }, [])
-
-    
-    if(loading){
-        return (
-            <div>Loading...</div>
-        )
-    }
+        popualteCourse();
+    },[]);
 
   return (
-    <div>
-        <h1>Edit Course</h1>
-        <div>
-            {
-                course ? (<RenderSteps/>) : (<p>Course Not Found</p>)
-            }
-        </div>
+    <div className='mx-auto w-11/12 max-w-[1000px] py-10'>
+        <h1 className='mb-14 text-3xl font-medium text-richblack-5'>Edit Course</h1>
+        {
+            loading 
+            ? <p>Loading...</p> 
+            :( <RenderSteps/> )
+        }
     </div>
   )
 }

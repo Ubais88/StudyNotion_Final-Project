@@ -1,5 +1,5 @@
 import { setProgress } from "../../slices/loadingBarSlice";
-import { apiconnector } from "../apiconnector";
+import { apiConnector } from "../apiConnector";
 import { profileEndpoints } from "../apis";
 import { toast } from "react-hot-toast";
 import {settingsEndpoints} from "../apis"
@@ -14,7 +14,7 @@ export async function getUserCourses(token,dispatch){
     let result = []
     try {
       console.log("BEFORE Calling BACKEND API FOR ENROLLED COURSES");
-      const response = await apiconnector(
+      const response = await apiConnector(
         "GET",
         profileEndpoints.GET_USER_ENROLLED_COURSES_API,
         null,
@@ -49,7 +49,7 @@ export async function updatePfp(token,pfp){
     const formData = new FormData();
     console.log("pfp",pfp)
     formData.append('pfp',pfp);
-    const response = await apiconnector("PUT", settingsEndpoints.UPDATE_DISPLAY_PICTURE_API,formData,{
+    const response = await apiConnector("PUT", settingsEndpoints.UPDATE_DISPLAY_PICTURE_API,formData,{
       Authorisation: `Bearer ${token}`,
     });
     console.log("UPDATE_DISPLAY_PICTURE_API API RESPONSE............", response)
@@ -75,7 +75,7 @@ export async function updateAdditionalDetails(token,additionalDetails){
   console.log("additionalDetails",additionalDetails);
   const toastId = toast.loading("Updating...");
   try {
-    const response = await apiconnector("PUT", settingsEndpoints.UPDATE_PROFILE_API,{firstName,lastName,dateOfBirth,gender,contactNumber,about},{
+    const response = await apiConnector("PUT", settingsEndpoints.UPDATE_PROFILE_API,{firstName,lastName,dateOfBirth,gender,contactNumber,about},{
       Authorisation: `Bearer ${token}`,
     });
     console.log("UPDATE_ADDITIONAL_DETAILS_API API RESPONSE............", response)
@@ -106,7 +106,7 @@ export async function updatePassword(token,password){
   console.log("password",password);
   const toastId = toast.loading("Updating...");
   try {
-   const response = await apiconnector("POST", settingsEndpoints.CHANGE_PASSWORD_API,{oldPassword, newPassword, confirmNewPassword},{
+   const response = await apiConnector("POST", settingsEndpoints.CHANGE_PASSWORD_API,{oldPassword, newPassword, confirmNewPassword},{
       Authorisation: `Bearer ${token}`,
     });
     console.log("UPDATE_PASSWORD_API API RESPONSE............", response)
@@ -127,7 +127,7 @@ export async function updatePassword(token,password){
 export async function deleteAccount(token,dispatch,navigate){
   const toastId = toast.loading("Deleting...");
   try {
-    const response = await apiconnector("DELETE", settingsEndpoints.DELETE_PROFILE_API,null,{
+    const response = await apiConnector("DELETE", settingsEndpoints.DELETE_PROFILE_API,null,{
       Authorisation: `Bearer ${token}`,
     });
     console.log("DELETE_ACCOUNT_API API RESPONSE............", response)
@@ -151,7 +151,7 @@ export async function getInstructorDashboard(token,dispatch){
   let result = []
   try {
     console.log("BEFORE Calling BACKEND API FOR INSTRUCTOR DASHBOARD");
-    const response = await apiconnector(
+    const response = await apiConnector(
       "GET",
       profileEndpoints.GET_ALL_INSTRUCTOR_DASHBOARD_DETAILS_API,
       null,

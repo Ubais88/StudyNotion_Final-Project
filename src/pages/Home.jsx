@@ -1,16 +1,15 @@
-import React from 'react'
-import {FaArrowRight} from 'react-icons/fa';
-import {Link} from 'react-router-dom';
-import CTAButton from '../components/core/HomePage/Button';
-import HighlightText from '../components/core/HomePage/HighLightText';
-import Banner from "../assets/Images/banner.mp4"
+import React from "react";
+import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import CTAButton from "../components/core/HomePage/Button";
+import HighlightText from "../components/core/HomePage/HighLightText";
+import Banner from "../assets/Images/banner.mp4";
 import CodeBlocks from "../components/core/HomePage/CodeBlocks";
-import Footer from '../components/common/Footer';
-import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection"
-import TimeLineSection from "../components/core/HomePage/TimeLineSection"
-import InstructorSection from "../components/core/HomePage/InstructorSection.jsx"
-import ExploreMore from "../components/core/HomePage/ExploreMore.jsx"
-
+import Footer from "../components/common/Footer";
+import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection";
+import TimeLineSection from "../components/core/HomePage/TimeLineSection";
+import InstructorSection from "../components/core/HomePage/InstructorSection.jsx";
+import ExploreMore from "../components/core/HomePage/ExploreMore.jsx";
 
 function Home() {
   return (
@@ -122,70 +121,64 @@ function Home() {
           />
         </div>
 
-        <ExploreMore/>
+        <ExploreMore />
       </div>
-
 
       {/* section 2 */}
-      <div className=' bg-pure-greys-5 text-richblack-700'>
-            <div className='homepage_bg h-[333px]'>
-                <div className='w-11/12 max-w-maxContent flex flex-col items-center gap-5'>
-                <div className='h-[150px]'></div>
-                    <div className='mt-7 flex gap-7 text-white'>
-                        <CTAButton
-                            active={true}
-                            linkto={"/signup"}
-                        >
-                            <div className='flex items-center gap-2'>
-                                Explore Full Catalog
-                                <FaArrowRight/>
-                            </div>
-                        </CTAButton>
-                        <CTAButton
-                            active={false}
-                            linkto={"/signup"}
-                        >
-                            <div>Learn More</div>
-                        </CTAButton>
-                    </div>
+      <div className=" bg-pure-greys-5 text-richblack-700">
+        <div className="homepage_bg h-[333px]">
+          <div className="w-11/12 max-w-maxContent flex flex-col items-center gap-5">
+            <div className="h-[150px]"></div>
+            <div className="mt-7 flex gap-7 text-white">
+              <CTAButton active={true} linkto={"/signup"}>
+                <div className="flex items-center gap-2">
+                  Explore Full Catalog
+                  <FaArrowRight />
                 </div>
+              </CTAButton>
+              <CTAButton active={false} linkto={"/signup"}>
+                <div>Learn More</div>
+              </CTAButton>
             </div>
+          </div>
+        </div>
 
-            <div className='w-11/12 max-w-maxContent mx-auto flex flex-col items-center gap-7'>
-                <div className='flex flex-row gap-5 mb-10 mt-[95px]'>
-                    <div className='text-4xl font-semibold w-[45%]'>
-                        Get the skills you need for a
-                        <HighlightText text={"Job that is in demand"}/>
-                    </div>
-                    <div className='flex flex-col gap-10 w-[40%] items-start'>
-                        <p className='text-[16px]'>
-                            The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional
-                            skills.
-                        </p>
-                        <CTAButton active={true} linkto={"/signup"}>Learn More</CTAButton>
-                    </div>
-                </div>
-                <TimeLineSection/>
-                <LearningLanguageSection/>
+        <div className="w-11/12 max-w-maxContent mx-auto flex flex-col items-center gap-7">
+          <div className="flex flex-row gap-5 mb-10 mt-[95px]">
+            <div className="text-4xl font-semibold w-[45%]">
+              Get the skills you need for a
+              <HighlightText text={"Job that is in demand"} />
             </div>
+            <div className="flex flex-col gap-10 w-[40%] items-start">
+              <p className="text-[16px]">
+                The modern StudyNotion is the dictates its own terms. Today, to
+                be a competitive specialist requires more than professional
+                skills.
+              </p>
+              <CTAButton active={true} linkto={"/signup"}>
+                Learn More
+              </CTAButton>
+            </div>
+          </div>
+          <TimeLineSection />
+          <LearningLanguageSection />
+        </div>
       </div>
 
-    {/* section 3 */}
-    <div className='w-11/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white'>
-        <InstructorSection/>
+      {/* section 3 */}
+      <div className="w-11/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white">
+        <InstructorSection />
 
-        <h2 className='text-center text-4xl font-semibold mt-10 '>Reviews from Other Learners</h2>
+        <h2 className="text-center text-4xl font-semibold mt-10 ">
+          Reviews from Other Learners
+        </h2>
         {/* review slider */}
+      </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
-    
-
-
-
-
-    {/* Footer */}
-      <Footer/>
-    </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

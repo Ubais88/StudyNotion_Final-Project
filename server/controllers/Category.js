@@ -1,6 +1,7 @@
 const Category = require("../models/Category");
 const Course = require("../models/Course");
 
+
 exports.createCategory = async (req, res) => {
 	try {
 		const { name, description } = req.body;
@@ -26,23 +27,45 @@ exports.createCategory = async (req, res) => {
 	}
 };
 
+// exports.showAllCategories = async (req, res) => {
+// 	try {
+// 		const allCategorys = await Category.find(
+// 			{},
+// 			{ name: true, description: true }
+// 		);
+// 		res.status(200).json({
+// 			success: true,
+// 			data: allCategorys,
+// 		});
+// 	} 
+	
+// 	catch (error) {
+// 		return res.status(500).json({
+// 			success: false,
+// 			message: error.message,
+// 		});
+// 	}
+// };
+
 exports.showAllCategories = async (req, res) => {
 	try {
-		const allCategorys = await Category.find(
-			{},
-			{ name: true, description: true }
-		);
+        // console.log("INSIDE SHOW ALL CATEGORIES");
+		const allCategorys = await Category.find({});
 		res.status(200).json({
 			success: true,
+			message:"All Categories fetched successfully",
 			data: allCategorys,
 		});
-	} catch (error) {
+	} 
+	
+	catch (error) {
 		return res.status(500).json({
 			success: false,
 			message: error.message,
 		});
 	}
 };
+
 
 exports.categoryPageDetails = async (req, res) => {
 	try {
