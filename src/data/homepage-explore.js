@@ -1,4 +1,4 @@
-export const HomePageExplorer = [
+export const HomePageExplore = [
     {
         tag: 'Free',
         courses : [

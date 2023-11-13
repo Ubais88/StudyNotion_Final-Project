@@ -1,9 +1,9 @@
-import { setProgress } from "../../slices/loadingBarSlice";
+import { setProgress } from "../../slices/loadingBarSlice.js";
 import { apiConnector } from "../apiConnector";
 import { profileEndpoints } from "../apis";
 import { toast } from "react-hot-toast";
 import {settingsEndpoints} from "../apis"
-import { logout } from "./authApi";
+import { logout } from "./authAPI.js";
 
 
 
@@ -68,6 +68,9 @@ export async function updatePfp(token,pfp){
 }
 
 
+
+
+
 //updateAdditionalDetails
 export async function updateAdditionalDetails(token,additionalDetails){
   console.log("additionalDetails",additionalDetails);
@@ -100,6 +103,10 @@ export async function updateAdditionalDetails(token,additionalDetails){
 }
 
 
+
+
+
+
 //updatePassword
 export async function updatePassword(token,password){
   const { oldPassword, newPassword, confirmPassword:confirmNewPassword }=password;
@@ -121,6 +128,7 @@ export async function updatePassword(token,password){
   }
   toast.dismiss(toastId);
 }
+
 
 
 //deleteAccount

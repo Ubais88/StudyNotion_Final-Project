@@ -8,10 +8,7 @@ import "swiper/css/navigation";
 import { Navigation, Pagination ,Keyboard,Mousewheel,Autoplay,  FreeMode} from 'swiper/modules';
 
 
-// import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-// import "react-loading-skeleton/dist/skeleton.css";
-
-import Course_Card from './Course_Card'
+import CatalogCard from './CatalogCard'
 
 const CourseSlider = ({Courses}) => {
     
@@ -65,7 +62,7 @@ const CourseSlider = ({Courses}) => {
                     {
                         Courses?.map((course, index)=> (
                             <SwiperSlide key={index}>
-                                <Course_Card course={course} Height={"lg:h-[250px] h-[100px]"} />
+                                <CatalogCard course={course} Height={"lg:h-[250px] h-[100px]"} />
                             </SwiperSlide>
                         ))
                     }   
@@ -73,8 +70,8 @@ const CourseSlider = ({Courses}) => {
                     {/* <div className='swiper-button-prev'></div> */}
                 </Swiper>
             ) : (
-                <div className='flex gap-4 overflow-hidden'>
-                    <span className='text-richblack-50'>No course Found</span>
+                <div className=''>
+
                 </div>
             )
 

@@ -1,41 +1,50 @@
-import React from 'react'
+import { FcGoogle } from "react-icons/fc"
+import { useSelector } from "react-redux"
+
+import frameImg from "../../../assets/Images/frame.png"
 import LoginForm from "./LoginForm"
 import SignupForm from "./SignupForm"
-import Frame from "../../../assets/Images/frame.png"
 
+function Template({ title, description1, description2, image, formType }) {
+  const { loading } = useSelector((state) => state.auth)
 
-const Template = ({ title, desc1, desc2, image, formtype }) => {
   return (
-    <div className='w-11/12 flex justify-between max-w-[1060px] py-12 mx-auto gap-x-12 gap-y-0'
-    >
-        <div className='w-11/12 max-w-[450px]'>
-            <h1 className='text-richblack-5 font-semibold text-3xl'
-            >
-                {title}
+    <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+      {loading ? (
+        <div className="spinner"></div>
+      ) : (
+        <div className="mx-auto flex w-11/12 max-w-maxContent flex-col-reverse justify-between gap-y-12 py-12 md:flex-row md:gap-y-0 md:gap-x-12">
+          <div className="mx-auto w-11/12 max-w-[450px] md:mx-0">
+            <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5">
+              {title}
             </h1>
-            <p className='flex flex-col text-[1.125rem] leading-[1.625rem] mt-4'
-            >
-                <span className='text-richblack-100'>{desc1}</span>
-                <span className='text-blue-100 italic'>{desc2}</span>
+            <p className="mt-4 text-[1.125rem] leading-[1.625rem]">
+              <span className="text-richblack-100">{description1}</span>{" "}
+              <span className="font-edu-sa font-bold italic text-blue-100">
+                {description2}
+              </span>
             </p>
-            {formtype === "signup" ? (<SignupForm/>) : (<LoginForm/>)}
-        </div>
-
-
-        <div className='relative w-11/12 max-w-[450px] mx-auto md:mx-0'>
-            <img src={Frame} alt="frame" 
-                width={558}
-                height={504}
-                loading='lazy'
+            {formType === "signup" ? <SignupForm /> : <LoginForm />}
+          </div>
+          <div className="relative mx-auto w-11/12 max-w-[450px] md:mx-0">
+            <img
+              src={frameImg}
+              alt="Pattern"
+              width={558}
+              height={504}
+              loading="lazy"
             />
-            <img src={image} alt="Logo"  
-                width={558}
-                height={504}
-                loading='lazy'  
-                className='absolute -top-4 right-4' 
+            <img
+              src={image}
+              alt="Students"
+              width={558}
+              height={504}
+              loading="lazy"
+              className="absolute -top-4 right-4 z-10"
             />
+          </div>
         </div>
-
+      )}
     </div>
   )
 }

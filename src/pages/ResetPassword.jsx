@@ -2,13 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
-import { resetPassword } from '../services/operations/authApi'
+import { resetPassword } from '../services/operations/authAPI'
 import { useDispatch } from 'react-redux'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
-import toast from 'react-hot-toast'
 
 const ResetPassword = () => {
-
     const location = useLocation();
     const dispatch = useDispatch();
     const token = location.pathname.split("/").at(-1);
@@ -19,7 +17,7 @@ const ResetPassword = () => {
             dispatch(resetPassword(formData.password, formData.confirmPassword,token,setresetComplete));
             }
         else{
-            toast.error("Passwords do not match")
+            alert("Passwords do not match")
         }
 
         
@@ -36,22 +34,19 @@ const ResetPassword = () => {
     const [resetComplete, setresetComplete] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-
   return (
     <div className='grid min-h-[calc(100vh-3.5rem)] place-items-center'>
             {
-                loading ? (
-                    <div>Loading...</div>
-                    ) : (
-                        <div className='max-w-[500px] p-4 lg:p-8 '>
-                        <h1 className='text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5'>
+                loading?(<div class="custom-loader"></div>):
+                (<div className='max-w-[500px] p-4 lg:p-8 '>
+                    <h1 className='text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5'>
                         {
-                            !resetComplete ? ("Choose  new password") : "Reset complete!"
+                            !resetComplete?("Choose  new password"):"Reset complete!"
                         }
-                        </h1>
+                    </h1>
                     <p className='my-4 text-[1.125rem] leading-[1.625rem] text-richblack-100'>
                         {
-                            !resetComplete ? ("Almost done. Enter your new password and youre all set.") : (`All done! We have sent an email to ${"nn"} to confirm`)
+                            !resetComplete?("Almost done. Enter your new password and youre all set."):(`All done! We have sent an email to ${"nn"} to confirm`)
                         }
                     </p>
                     <form onSubmit={handleOnSubmit}>

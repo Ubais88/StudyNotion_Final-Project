@@ -1,28 +1,32 @@
-import { useSelector } from "react-redux"
-import { Outlet } from "react-router-dom"
+import React from 'react'
+import { useSelector } from 'react-redux'
+import {Outlet} from "react-router-dom"
+import Sidebar from '../Components/core/Dashboard/Sidebar'
 
-import Sidebar from "../components/core/Dashboard/SideBar"
+const Dashboard = () => {
 
-function Dashboard() {
-  const { loading: profileLoading } = useSelector((state) => state.profile)
-  const { loading: authLoading } = useSelector((state) => state.auth)
+    const {loading: authLoading} = useSelector( (state) => state.auth );
+    const {loading: profileLoading} = useSelector( (state) => state.profile );
 
-  if (profileLoading || authLoading) {
-    return (
-      <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
-        <div className="spinner">Loading</div>
-      </div>
-    )
-  }
+
+
+    if(profileLoading || authLoading) {
+        return (
+            <div className='mt-10'>
+                Loading...
+            </div>
+        )
+    }
+
 
   return (
-    <div className="relative flex min-h-[calc(100vh-3.5rem)]">
-      <Sidebar />
-      <div className="h-[calc(100vh-3.5rem)] flex-1 overflow-auto">
-        <div className="mx-auto w-11/12 max-w-[1000px] py-10 text-white">
-          <Outlet />
+    <div className='relative flex bg-richblack-400'>
+        <Sidebar />
+        <div className=' flex-1 overflow-auto bg-richblack-900'>
+            <div className='py-10'>
+                <Outlet />
+            </div>
         </div>
-      </div>
     </div>
   )
 }

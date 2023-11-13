@@ -4,9 +4,11 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import { sendOtp } from "../../../services/operations/authApi"
+import { sendOtp } from "../../../services/operations/authAPI"
 import { setSignupData } from "../../../slices/authSlice"
 import { ACCOUNT_TYPE } from "../../../utils/constants"
+import Tab from "../../common/Tab"
+import {setProgress} from "../../../slices/loadingBarSlice"
 
 function SignupForm() {
   const navigate = useNavigate()
@@ -66,9 +68,24 @@ function SignupForm() {
     setAccountType(ACCOUNT_TYPE.STUDENT)
   }
 
+  // data to pass to Tab component
+  const tabData = [
+    {
+      id: 1,
+      tabName: "Student",
+      type: ACCOUNT_TYPE.STUDENT,
+    },
+    {
+      id: 2,
+      tabName: "Instructor",
+      type: ACCOUNT_TYPE.INSTRUCTOR,
+    },
+  ]
 
   return (
     <div>
+      {/* Tab */}
+      <Tab tabData={tabData} field={accountType} setField={setAccountType} />
       {/* Form */}
       <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4">
         <div className="flex gap-x-4">
@@ -181,7 +198,7 @@ function SignupForm() {
           </label>
         </div>
         <button
-          type="submit"
+          type="submit" onClick={()=>{dispatch(setProgress(60))}}
           className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
         >
           Create Account

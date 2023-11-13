@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { categories } from '../services/apis';
 import { apiConnector } from '../services/apiConnector';
 import { useEffect } from 'react';
-import CourseSlider from '../components/core/Catalog/CourseSlider';
+import CourseSlider from '../Components/core/Catalog/CourseSlider';
 import { getCatalogaPageData } from '../services/operations/pageAndComponentData';
-import Course_Card from '../components/core/Catalog/Course_Card';
+import CatalogCard from '../Components/core/Catalog/CatalogCard';
 import { useDispatch } from 'react-redux';
 
 const Catalog = () => {
@@ -87,7 +87,7 @@ useEffect(() => {
           <div className='grid grid-cols-2 gap-3 lg:gap-6 lg:grid-cols-2 pr-4'>
             {
               CatalogPageData?.mostSellingCourses?.map((item,index)=>(
-                <Course_Card key={index} course={item} Height={"h-[100px] lg:h-[400px]"} />
+                <CatalogCard key={index} course={item} Height={"h-[100px] lg:h-[400px]"} />
               ))
             }
           </div>

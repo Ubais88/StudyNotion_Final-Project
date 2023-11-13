@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 
 import useOnClickOutside from "../../../hooks/useOnClickOutside"
-import { logout } from "../../../services/operations/authApi"
+import { logout } from "../../../services/operations/authAPI"
 
 export default function ProfileDropdown() {
   const { user } = useSelector((state) => state.profile)
@@ -31,8 +31,7 @@ export default function ProfileDropdown() {
         />
         <AiOutlineCaretDown className="text-sm text-richblack-100" />
       </div>
-      {
-        open && (
+      {open && (
         <div
           onClick={(e) => e.stopPropagation()}
           className="absolute top-[118%] -right-8 z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-richblack-800"

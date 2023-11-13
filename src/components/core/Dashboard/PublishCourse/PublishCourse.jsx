@@ -19,7 +19,7 @@ const PublishCourse = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(course?.status === COURSE_STATUS.PUBLISHED) {
+        if(course?.status=== COURSE_STATUS.PUBLISHED) {
             setValue("public", true);
         }
     },[]);
@@ -32,7 +32,7 @@ const PublishCourse = () => {
         navigate("/dashboard/my-courses");
     }
 
-    const handlePublish = async () => {
+    const handelPublish = async () => {
         if((course?.status === COURSE_STATUS.PUBLISHED && getValues("public") === true) ||( course?.status === COURSE_STATUS.DRAFT && getValues("public") === false)) {
             goToMyCourses();
             setLoading(false);
@@ -46,24 +46,23 @@ const PublishCourse = () => {
         const result = await editCourseDetails(formData, token);
         const category_id= await course.category;
         console.log("category_id",category_id);
-
-        // const addCourseCategory = await addCourseToCategory({categoryId:category_id,courseId:course._id},token);
-        // if(result && addCourseCategory) {
-        //     goToMyCourses();
-        // } else {
-        //     toast.error("Something went wrong");
-        // }
-        // if(addCourseCategory) {
-        // dispatch(setStep(1));
-        // dispatch(setEditCourse(null));
-        // setLoading(false);
-        // }
+        const addCourseCategory = await addCourseToCategory({categoryId:category_id,courseId:course._id},token);
+        if(result && addCourseCategory) {
+            goToMyCourses();
+        } else {
+            toast.error("Something went wrong");
+        }
+        if(addCourseCategory) {
+        dispatch(setStep(1));
+        dispatch(setEditCourse(null));
+        setLoading(false);
+        }
     }
         
 
     const onSubmit = (data) => {
         setLoading(true);
-        handlePublish(data);
+        handelPublish(data);
     }
 
   return (

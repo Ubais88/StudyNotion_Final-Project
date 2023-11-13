@@ -1,10 +1,6 @@
 const mailSender = require("../utils/mailSender");
 
 
-
-
-
-
 exports.contactUs = async (req, res) => {
     const { firstName, lastName, email, message, phoneNo } = req.body;
     if (!firstName || !email || !message) {
@@ -21,7 +17,7 @@ exports.contactUs = async (req, res) => {
             message,
             phoneNo: `${phoneNo ? phoneNo : "null"}`,
         }
-        const info = await mailSender("sangwanhimanshu8443@gmail.com","Enquery",`<html><body>${
+        const info = await mailSender("moubais2143@gmail.com","Enquery",`<html><body>${
             Object.keys(data).map((key) => {
                 return `<p>${key} : ${data[key]}</p>`;
             })

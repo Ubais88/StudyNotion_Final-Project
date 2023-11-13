@@ -1,23 +1,22 @@
 import React, { useEffect } from 'react'
 import OTPInput from 'react-otp-input'
 import { useSelector,useDispatch } from 'react-redux';
-import { signUp } from '../services/operations/authApi';
+import { signUp } from '../services/operations/authAPI';
 import { useNavigate } from 'react-router-dom';
 
-const VerifyOTP = () => {
+const VerifyOtp = () => {
 
     const [otp, setOtp] = React.useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const {loading,signupData} = useSelector((state)=>state.auth);
+    const {loading,signupData}= useSelector((state)=>state.auth);
 
 
     useEffect(() => {
 
         if(!signupData){
             navigate('/signup');
-        }
-    },[])
+        }},[])
 
 
 
@@ -37,7 +36,7 @@ const VerifyOTP = () => {
     }
 
   return (
-    loading ? ( <div>Loading...</div>) : (
+    loading?(<div className=" h-[100vh] flex justify-center items-center"><div class="custom-loader"></div></div>):(
     <div>
        <div className='min-h-[calc(100vh-3.5rem)] grid place-items-center'>
         <div className='max-w-[500px] p-4 lg:p-8'>
@@ -59,10 +58,12 @@ const VerifyOTP = () => {
                     />
                 <button type="submit" className="w-full bg-yellow-50 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900">Verify Email</button>
                 </form>
+                
+
         </div>
        </div>
     </div>)
   )
 }
 
-export default VerifyOTP
+export default VerifyOtp

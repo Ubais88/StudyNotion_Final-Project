@@ -1,6 +1,5 @@
 import React from 'react'
-import ContactUsForm from '../../ContactPage/ContactUsForm'
-
+import ContactUsForm from '../../contactUs/ContactUsForm'
 
 const ContactFormSection = () => {
   return (
@@ -12,7 +11,7 @@ const ContactFormSection = () => {
         We'd love to here for you, Please fill out this form.
       </p>
       <div>
-        <ContactUsForm/>
+        <ContactUsForm />
       </div>
     </div>
   )

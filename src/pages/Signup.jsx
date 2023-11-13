@@ -1,24 +1,20 @@
-import React from 'react'
-import signupimg from "../assets/Images/signup.webp"
-import Template from "../components/core/Auth/Template"
+import signupImg from "../assets/Images/signup.webp"
+import Template from "../Components/core/Auth/Template"
 import { useSelector } from "react-redux";
 
-const Signup = () => {
+function Signup() {
   const {loading} = useSelector((state)=>state.auth);
-
   return (
+    loading?(<div className=" h-[100vh] flex justify-center items-center"><div class="custom-loader"></div></div>):(
     <Template
       title="Join the millions learning to code with StudyNotion for free"
-      desc1="Build skills for today, tommorrow and beyond."
-      desc2="Education to future-proof your carrer."
-      image={signupimg}
-      formtype="signup"
+      description1="Build skills for today, tomorrow, and beyond."
+      description2="Education to future-proof your career."
+      image={signupImg}
+      formType="signup"
     />
+    )
   )
 }
 
 export default Signup
-
-
-
-// export default Signup

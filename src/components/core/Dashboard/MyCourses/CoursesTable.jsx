@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Table, Tbody, Td, Th, Thead, Tr } from "react-super-responsive-table"
 
-import { setCourse, setEditCourse } from "../../../../../slices/courseSlice"
+import { setCourse, setEditCourse } from "../../../../slices/courseSlice"
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css"
 import { useState } from "react"
 import { FaCheck } from "react-icons/fa"
@@ -10,13 +10,13 @@ import { HiClock } from "react-icons/hi"
 import { RiDeleteBin6Line } from "react-icons/ri"
 import { useNavigate } from "react-router-dom"
 
-import { formatDate } from "../../../../../services/formatDate"
+import { formatDate } from "../../../../services/formatDate"
 import {
   deleteCourse,
   fetchInstructorCourses,
-} from "../../../../../services/operations/courseDetailsAPI"
-import { COURSE_STATUS } from "../../../../../utils/constants"
-import ConfirmationModal from "../../../../common/ConfirmationModal"
+} from "../../../../services/operations/courseDetailsAPI"
+import { COURSE_STATUS } from "../../../../utils/constants"
+import ConfirmationModal from "../../../common/ConfirmationModal"
 
 export default function CoursesTable({ courses, setCourses }) {
   const dispatch = useDispatch()
@@ -70,7 +70,7 @@ export default function CoursesTable({ courses, setCourses }) {
             <Tr>
               <Td className="py-10 text-center text-2xl font-medium text-richblack-100">
                 No courses found
-          
+                {/* TODO: Need to change this state */}
               </Td>
             </Tr>
           ) : (
@@ -101,21 +101,19 @@ export default function CoursesTable({ courses, setCourses }) {
                     <p className="text-[12px] text-white">
                       Created: {formatDate(course?.createdAt || course?.updatedAt)}
                     </p>
-                    {
-                        course.status === COURSE_STATUS.DRAFT ? (
-                        <p className="flex w-fit flex-row items-center gap-2 rounded-full bg-richblack-700 px-2 py-[2px] text-[12px] font-medium text-pink-100">
-                            <HiClock size={14} />
-                            Drafted
-                        </p>
-                        ) : (
-                        <p className="flex w-fit flex-row items-center gap-2 rounded-full bg-richblack-700 px-2 py-[2px] text-[12px] font-medium text-yellow-100">
-                            <div className="flex h-3 w-3 items-center justify-center rounded-full bg-yellow-100 text-richblack-700">
-                            <FaCheck size={8} />
-                            </div>
-                            Published
-                        </p>
-                        )
-                    }
+                    {course.status === COURSE_STATUS.DRAFT ? (
+                      <p className="flex w-fit flex-row items-center gap-2 rounded-full bg-richblack-700 px-2 py-[2px] text-[12px] font-medium text-pink-100">
+                        <HiClock size={14} />
+                        Drafted
+                      </p>
+                    ) : (
+                      <p className="flex w-fit flex-row items-center gap-2 rounded-full bg-richblack-700 px-2 py-[2px] text-[12px] font-medium text-yellow-100">
+                        <div className="flex h-3 w-3 items-center justify-center rounded-full bg-yellow-100 text-richblack-700">
+                          <FaCheck size={8} />
+                        </div>
+                        Published
+                      </p>
+                    )}
                   </div>
                 </Td>
                 {/* <Td className="text-sm font-medium text-richblack-100">
@@ -140,7 +138,8 @@ export default function CoursesTable({ courses, setCourses }) {
                     onClick={() => {
                       setConfirmationModal({
                         text1: "Do you want to delete this course?",
-                        text2: "All the data related to this course will be deleted",
+                        text2:
+                          "All the data related to this course will be deleted",
                         btn1Text: !loading ? "Delete" : "Loading...  ",
                         btn2Text: "Cancel",
                         btn1Handler: !loading
