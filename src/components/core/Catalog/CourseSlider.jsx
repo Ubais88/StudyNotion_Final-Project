@@ -1,12 +1,13 @@
 import React from 'react'
-
 import {Swiper, SwiperSlide} from "swiper/react"
 import "swiper/css"
 import "swiper/css/free-mode"
 import "swiper/css/pagination"
 import "swiper/css/navigation";
-import { Navigation, Pagination ,Keyboard,Mousewheel,Autoplay,  FreeMode} from 'swiper/modules';
+import { Autoplay,FreeMode,Navigation, Pagination,Mousewheel, Keyboard}  from 'swiper/modules'
 
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import "react-loading-skeleton/dist/skeleton.css";
 
 import CatalogCard from './CatalogCard'
 
@@ -70,8 +71,31 @@ const CourseSlider = ({Courses}) => {
                     {/* <div className='swiper-button-prev'></div> */}
                 </Swiper>
             ) : (
+                <div className='flex gap-4 overflow-hidden'>
+                <SkeletonTheme baseColor="#2C333F" highlightColor="#161D29">
                 <div className=''>
-
+                  <Skeleton  className="md:h-[200px] lg:w-[400px] h-[100px] w-[200px] rounded-xl" />
+                  <Skeleton className=" md:h-[20px] w-[70px] rounded-md" />
+                  <Skeleton className="md:h-[20px] md:w-[400px] rounded-md" />
+                  <Skeleton className="md:h-[20px] md:w-[400px] rounded-md"/>
+                </div>
+              </SkeletonTheme>
+                <SkeletonTheme baseColor="#2C333F" highlightColor="#161D29">
+                <div className=''>
+                  <Skeleton  className="md:h-[200px] lg:w-[400px] h-[100px] w-[200px] rounded-xl" />
+                  <Skeleton className=" md:h-[20px] w-[70px] rounded-md" />
+                  <Skeleton className="md:h-[20px] md:w-[400px] rounded-md" />
+                  <Skeleton className="md:h-[20px] md:w-[400px] rounded-md"/>
+                </div>
+              </SkeletonTheme>
+                <SkeletonTheme baseColor="#2C333F" highlightColor="#161D29">
+                <div className=''>
+                  <Skeleton  className="md:h-[200px] lg:w-[400px] h-[100px] w-[200px] rounded-xl" />
+                  <Skeleton className=" md:h-[20px] w-[70px] rounded-md" />
+                  <Skeleton className="md:h-[20px] md:w-[400px] rounded-md" />
+                  <Skeleton className="md:h-[20px] md:w-[400px] rounded-md"/>
+                </div>
+              </SkeletonTheme>
                 </div>
             )
 

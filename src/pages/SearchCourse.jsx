@@ -6,6 +6,8 @@ import { useState } from 'react'
 import CatalogCard from '../Components/core/Catalog/CatalogCard'
 import { useDispatch } from 'react-redux'
 import {HiOutlineEmojiSad} from 'react-icons/hi'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import "react-loading-skeleton/dist/skeleton.css";
 
 const SearchCourse = () => {
     const [searchResults, setSearchResults] = useState([]);
@@ -38,8 +40,31 @@ const SearchCourse = () => {
         </div>
         {
             loading ? (
-                <div className='flex  m-9'>
-                  Loading
+                <div className='flex gap-6 flex-wrap justify-evenly overflow-hidden m-9'>
+                <SkeletonTheme baseColor="#2C333F" highlightColor="#161D29">
+                <div className=''>
+                  <Skeleton  className="md:h-[200px] lg:w-[400px] h-[100px] w-[200px] rounded-xl" />
+                  <Skeleton className=" md:h-[20px] w-[70px] rounded-md" />
+                  <Skeleton className="md:h-[20px] md:w-[400px] rounded-md" />
+                  <Skeleton className="md:h-[20px] md:w-[400px] rounded-md"/>
+                </div>
+              </SkeletonTheme>
+                <SkeletonTheme baseColor="#2C333F" highlightColor="#161D29">
+                <div className=''>
+                  <Skeleton  className="md:h-[200px] lg:w-[400px] h-[100px] w-[200px] rounded-xl" />
+                  <Skeleton className=" md:h-[20px] w-[70px] rounded-md" />
+                  <Skeleton className="md:h-[20px] md:w-[400px] rounded-md" />
+                  <Skeleton className="md:h-[20px] md:w-[400px] rounded-md"/>
+                </div>
+              </SkeletonTheme>
+                <SkeletonTheme baseColor="#2C333F" highlightColor="#161D29">
+                <div className=''>
+                  <Skeleton  className="md:h-[200px] lg:w-[400px] h-[100px] w-[200px] rounded-xl" />
+                  <Skeleton className=" md:h-[20px] w-[70px] rounded-md" />
+                  <Skeleton className="md:h-[20px] md:w-[400px] rounded-md" />
+                  <Skeleton className="md:h-[20px] md:w-[400px] rounded-md"/>
+                </div>
+              </SkeletonTheme>
                 </div>
             ):
 
