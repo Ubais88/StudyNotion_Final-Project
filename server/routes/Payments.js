@@ -8,4 +8,5 @@ router.post("/capturePayment", auth, isStudent, capturePayment)
 router.post("/verifyPayment",auth,verifySignature)
 router.post("/sendPaymentSuccessEmail", auth, sendPaymentSuccessEmail)
 
+
 module.exports = router;

@@ -65,12 +65,7 @@ const RatingSlider = () => {
                     rewind={false}
                     centeredSlides={true}
                     navigation={false}
-                    // navigation={
-                    //     {
-                    //         nextEl: ".swiper-button-next",
-                    //         prevEl: ".swiper-button-prev",
-                    //     }
-                    // }
+         
                     breakpoints={{
                         300:{slidesPerView:1.1,spaceBetween:10,},
                         640:{slidesPerView:2.2,},
