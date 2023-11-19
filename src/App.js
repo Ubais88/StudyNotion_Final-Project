@@ -26,7 +26,7 @@ import AddCourse from "./Components/core/Dashboard/AddCourse/index";
 import MyCourses from "./Components/core/Dashboard/MyCourses/MyCourses";
 import EditCourse from "./Components/core/Dashboard/EditCourse.jsx/EditCourse";
 import Catalog from "./pages/Catalog";
-// import ScrollToTop from "./Components/ScrollToTop";
+import ScrollToTop from "./Components/ScrollToTop";
 import CourseDetails from "./pages/CourseDetails";
 import SearchCourse from "./pages/SearchCourse";
 import ViewCourse from "./pages/ViewCourse";
@@ -62,7 +62,7 @@ function App() {
           </button>
         </div>
       )}
-      {/* <ScrollToTop /> */}
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
 
