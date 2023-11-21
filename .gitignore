@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+
+
 # secret fix 
 /server/node_modules
 .env
