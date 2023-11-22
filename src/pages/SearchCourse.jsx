@@ -13,17 +13,25 @@ const SearchCourse = () => {
     const [searchResults, setSearchResults] = useState([]);
     const [loading, setLoading] = useState(false);
     const distpatch= useDispatch();
-    const {searchQuery}=useParams();
-    const fetchSearchResults= async ()=>{
+    const { searchQuery } = useParams();
+
+    // const fetchSearchResults= async () => {
+    //     setLoading(true);
+    //     const res = await searchCourses(searchQuery,distpatch);
+    //     setSearchResults(res);
+    //     setLoading(false);
+    //     console.log(res);
+    // }
+
+    useEffect(() => {
+      const fetchSearchResults= async () => {
         setLoading(true);
         const res = await searchCourses(searchQuery,distpatch);
         setSearchResults(res);
         setLoading(false);
         console.log(res);
-    }
-
-    useEffect(() => {
-        fetchSearchResults();
+      }
+      fetchSearchResults();
     }, [searchQuery])
 
 
