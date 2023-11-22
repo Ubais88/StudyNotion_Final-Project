@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 import { TiShoppingCart } from 'react-icons/ti'
 import ProfileDropDown from '../core/Auth/ProfileDropDown'
 import { categories } from '../../services/apis'
-import { apiConnector } from '../../services/apiConnector'
+import { ApiConnector } from '../../services/ApiConnector'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi'
@@ -37,7 +37,7 @@ const Navbar = ({ setProgress }) => {
     const [sublinks, setsublinks] = useState([]);
     const fetchSublinks = async () => {
         try {
-            const result = await apiConnector("GET", categories.CATEGORIES_API);
+            const result = await ApiConnector("GET", categories.CATEGORIES_API);
             if (result?.data?.data?.length > 0) {
                 setsublinks(result?.data?.data);
             }

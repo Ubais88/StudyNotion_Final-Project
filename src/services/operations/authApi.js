@@ -4,7 +4,7 @@ import { setLoading, setToken } from "../../slices/authSlice"
 import { resetCart } from "../../slices/cartSlice"
 import { setUser } from "../../slices/profileSlice"
 import { endpoints } from "../apis"
-import {apiConnector} from "../apiConnector"
+import {ApiConnector} from "../ApiConnector"
 import {setProgress} from "../../slices/loadingBarSlice"
 
 const {
@@ -20,7 +20,7 @@ export function sendOtp(email, navigate) {
     // const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
     try {
-      const response = await apiConnector("POST", SENDOTP_API, {
+      const response = await ApiConnector("POST", SENDOTP_API, {
         email,
         checkUserPresent: true,
       })
@@ -59,7 +59,7 @@ export function signUp(
     const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
     try {
-      const response = await apiConnector("POST", SIGNUP_API, {
+      const response = await ApiConnector("POST", SIGNUP_API, {
         accountType,
         firstName,
         lastName,
@@ -93,7 +93,7 @@ export function login(email, password, navigate) {
     const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
     try {
-      const response = await apiConnector("POST", LOGIN_API, {
+      const response = await ApiConnector("POST", LOGIN_API, {
         email,
         password,
       })
@@ -128,7 +128,7 @@ export function getPasswordResetToken(email, setEmailSent) {
     const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
     try {
-      const response = await apiConnector("POST", RESETPASSTOKEN_API, {
+      const response = await ApiConnector("POST", RESETPASSTOKEN_API, {
         email,
       })
 
@@ -154,7 +154,7 @@ export function resetPassword(password, confirmPassword, token,setresetComplete)
     const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
     try {
-      const response = await apiConnector("POST", RESETPASSWORD_API, {
+      const response = await ApiConnector("POST", RESETPASSWORD_API, {
         password,
         confirmPassword,
         token,
@@ -195,7 +195,7 @@ export function forgotPassword(email,setEmailSent) {
     // const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
     try {
-      const response = await apiConnector("POST", RESETPASSTOKEN_API, {
+      const response = await ApiConnector("POST", RESETPASSTOKEN_API, {
         email,
       })
 

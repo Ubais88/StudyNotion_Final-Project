@@ -1,5 +1,5 @@
 import { setProgress } from "../../slices/loadingBarSlice";
-import { apiConnector } from "../apiConnector";
+import { ApiConnector } from "../ApiConnector";
 import { catalogData } from "../apis";
 
 export const getCatalogaPageData = async (categoryId, dispatch) => {
@@ -7,7 +7,7 @@ export const getCatalogaPageData = async (categoryId, dispatch) => {
   dispatch(setProgress(50));
   let result = [];
   try {
-    const response = await apiConnector(
+    const response = await ApiConnector(
       "POST",
       catalogData.CATALOGPAGEDATA_API,
       { categoryId: categoryId }

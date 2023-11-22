@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router'
 import { useState } from 'react';
 import { categories } from '../services/apis';
-import { apiConnector } from '../services/apiConnector';
+import { ApiConnector } from '../services/ApiConnector';
 import { useEffect } from 'react';
 import CourseSlider from '../components/core/Catalog/CourseSlider';
 import { getCatalogaPageData } from '../services/operations/pageAndComponentData';
@@ -21,7 +21,7 @@ const Catalog = () => {
 
   const fetchSublinks=  async ()=>{
     try {
-        const result = await apiConnector("GET",categories.CATEGORIES_API);
+        const result = await ApiConnector("GET",categories.CATEGORIES_API);
         const category_id= result.data.data.filter((item)=>item.name=== Catalog.catalog)[0]._id;
         setcategoryID(category_id);      
         setDesc(result.data.data.filter((item)=>item.name=== Catalog.catalog)[0]);

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
-import { apiConnector } from '../../services/apiConnector';
+import { ApiConnector } from '../../services/ApiConnector';
 import { contactusEndpoint } from '../../services/apis';
 import toast from 'react-hot-toast';
 import countryCode from "../../data/countrycode.json"
@@ -29,7 +29,7 @@ const ContactUsForm = () => {
         const phoneNo = data.countryCode+"  "+data.phoneNo;
         const {firstName,lastName,email,message}=data;
 
-        const res = await apiConnector("POST",contactusEndpoint.CONTACT_US_API,{firstName,lastName,email,message,phoneNo});
+        const res = await ApiConnector("POST",contactusEndpoint.CONTACT_US_API,{firstName,lastName,email,message,phoneNo});
         if(res.data.success===true){
             
             toast.success("Message sent successfully");

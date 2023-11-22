@@ -1,4 +1,4 @@
-import { apiConnector } from "../apiConnector";
+import { ApiConnector } from "../ApiConnector";
 import { studentEndpoints } from "../apis";
 import { toast } from "react-hot-toast";
 import rzplogo from "../../assets/Images/rzp.png";
@@ -39,7 +39,7 @@ export async function buyCourse (token, courses, userDetails, navigate, dispatch
         toast.error("Razorpay SDK failed to load. Are you online?");
         return;
         }
-    const orderResponse = await apiConnector("POST", COURSE_PAYMENT_API, {courses},{
+    const orderResponse = await ApiConnector("POST", COURSE_PAYMENT_API, {courses},{
         Authorisation: `Bearer ${token}`,
     })
     if(!orderResponse.data.success){
@@ -93,7 +93,7 @@ async function sendPaymentSuccessEmail (response,amount,token) {
     //     orderId: response.razorpay_order_id,
     //     signature: response.razorpay_signature,
     // };
-    const res = await apiConnector("POST", SEND_PAYMENT_SUCCESS_EMAIL_API,{
+    const res = await ApiConnector("POST", SEND_PAYMENT_SUCCESS_EMAIL_API,{
         amount,
         paymentId:response.razorpay_payment_id,
         orderId:response.razorpay_order_id,
@@ -116,7 +116,7 @@ async function verifypament (response,courses,token,navigate,dispatch,) {
         //     orderId: response.razorpay_order_id,
         //     signature: response.razorpay_signature,
         // };
-        const res = await apiConnector("POST", COURSE_VERIFY_API,{
+        const res = await ApiConnector("POST", COURSE_VERIFY_API,{
             razorpay_payment_id: response.razorpay_payment_id,
             razorpay_order_id: response.razorpay_order_id,
             razorpay_signature: response.razorpay_signature,

@@ -9,7 +9,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import "react-loading-skeleton/dist/skeleton.css";
 import { useEffect, useState } from 'react';
 import { ratingsEndpoints } from '../../../services/apis'
-import { apiConnector } from '../../../services/apiConnector'
+import { ApiConnector } from '../../../services/ApiConnector'
 import RatingStars from '../../common/RatingStars'
 
 
@@ -21,7 +21,7 @@ const RatingSlider = () => {
         const getReviews = async () => {
             setLoading(true);
             try {
-                const res = await apiConnector("GET",ratingsEndpoints.REVIEWS_DETAILS_API);
+                const res = await ApiConnector("GET",ratingsEndpoints.REVIEWS_DETAILS_API);
                 setReviews(res.data.data);
                 console.log("LOGGING REVIEWS",res);
             } catch (error) {
