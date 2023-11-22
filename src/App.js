@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
-import VerifyOtp from "./pages/VerifyOtp";
+import VerifyEmail from "./pages/VerifyEmail";
 import About from "./pages/About";
 import ContactUs from "./pages/ContactUs";
 import LoadingBar from "react-top-loading-bar";
@@ -88,7 +88,7 @@ function App() {
 
         <Route path="/update-password/:id" element={<ResetPassword />} />
 
-        <Route path="/verify-email" element={<VerifyOtp />} />
+        <Route path="/verify-email" element={<VerifyEmail />} />
 
         <Route path="/about" element={<About />} />
 
