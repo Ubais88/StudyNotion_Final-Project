@@ -29,7 +29,7 @@ const timeline = [
   },
 ];
 
-const TimelineSection = () => {
+const TimeLineSection = () => {
   return (
     <div>
       <div className="flex flex-col lg:flex-row gap-15 items-center">
@@ -80,4 +80,4 @@ const TimelineSection = () => {
   );
 };
 
-export default TimelineSection;
+export default TimeLineSection;

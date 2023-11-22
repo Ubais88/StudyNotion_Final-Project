@@ -5,7 +5,7 @@ import CTAButton from "../components/core/HomePage/Button";
 import HighlightFont from "../components/core/HomePage/HighlightFont";
 import Banner from "../assets/Images/banner.mp4";
 import CodeBlocks from "../components/core/HomePage/CodeBlocks";
-import TimelineSection from "../components/core/HomePage/TimelineSection";
+import TimeLineSection from "../components/core/HomePage/TimeLineSection";
 import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection";
 import InstructorSection from "../components/core/HomePage/InstructorSection";
 import ExploreMore from "../components/core/HomePage/ExploreMore";
@@ -172,7 +172,7 @@ function Home() {
             </div>
           </div>
 
-          <TimelineSection />
+          <TimeLineSection />
 
           <LearningLanguageSection />
         </div>
