@@ -15,7 +15,7 @@ import { useRef } from 'react'
 import { HiSearch } from 'react-icons/hi'
 import { useNavigate } from 'react-router'
 
-const NavBar = ({ setProgress }) => {
+const Navbar = ({ setProgress }) => {
     const dispatch = useDispatch();
 
     const { token } = useSelector(state => state.auth);
@@ -61,7 +61,7 @@ const NavBar = ({ setProgress }) => {
 
 
 
-    //handeling navbar scroll
+    //handeling Navbar scroll
     const handleScroll = () => {
         const currentScrollPos = window.scrollY
 
@@ -285,4 +285,4 @@ const NavBar = ({ setProgress }) => {
     )
 }
 
-export default NavBar
+export default Navbar

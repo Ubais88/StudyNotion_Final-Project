@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import NavBar from "./components/common/NavBar";
+import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -48,7 +48,7 @@ function App() {
         progress={progress}
         onLoaderFinished={() => dispatch(setProgress(0))}
       />
-      <NavBar setProgress={setProgress}></NavBar>
+      <Navbar setProgress={setProgress} />
       {!navigator.onLine && (
         <div className="bg-red-500 flex text-white text-center p-2 bg-richblack-300 justify-center gap-2 items-center">
           <RiWifiOffLine size={22} />
