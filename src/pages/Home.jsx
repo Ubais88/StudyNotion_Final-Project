@@ -2,7 +2,7 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import CTAButton from "../components/core/HomePage/Button";
-import HighlightText from "../components/core/HomePage/HighlightText";
+import HighlightFont from "../components/core/HomePage/HighlightFont";
 import Banner from "../assets/Images/banner.mp4";
 import CodeBlocks from "../components/core/HomePage/CodeBlocks";
 import TimelineSection from "../components/core/HomePage/TimelineSection";
@@ -35,7 +35,7 @@ function Home() {
         </Link>
 
         <div className="text-center text-3xl md:text-4xl font-semibold mt-7">
-          Empower Your Future With <HighlightText text={"Coding Skills"} />
+          Empower Your Future With <HighlightFont text={"Coding Skills"} />
         </div>
         <div className=" mt-4 w-[90%] text-left md:text-center text-sm md:text-lg font-bold text-richblack-300">
           With our online coding courses, you can learn at your own pace, from
@@ -66,7 +66,7 @@ function Home() {
             heading={
               <div className=" font-semibold text-2xl lg:text-4xl sm:w-full">
                 Unlock Your
-                <HighlightText text={"coding potential"} />
+                <HighlightFont text={"coding potential"} />
                  with our online courses
               </div>
             }
@@ -109,7 +109,7 @@ function Home() {
             heading={
               <div className="text-4xl font-semibold">
                 Start
-                <HighlightText text={"coding in seconds"} />
+                <HighlightFont text={"coding in seconds"} />
               </div>
             }
             subheading={
@@ -157,7 +157,7 @@ function Home() {
           <div className="flex flex-row gap-5 mb-10 mt-[95px]">
             <div className="text-4xl font-semibold w-[45%]">
               Get the Skills you need for a
-              <HighlightText text={"Job that is in demand"} />
+              <HighlightFont text={"Job that is in demand"} />
             </div>
 
             <div className="flex flex-col gap-10 w-[40%] items-start">

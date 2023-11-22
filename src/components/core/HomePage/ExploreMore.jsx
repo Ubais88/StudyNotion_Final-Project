@@ -1,6 +1,6 @@
 import React from 'react'
 import  {HomePageExplore} from "../../../data/homepage-explore"
-import HighlightText from './HighlightText';
+import HighlightFont from './HighlightFont';
 import { useState } from 'react';
 import CourseCard from './CourseCard';
 
@@ -33,7 +33,7 @@ const ExploreMore = () => {
 
       <div className='text-3xl font-semibold text-center lg:text-4xl'>
         Unlock the 
-        <HighlightText text={"Power of Code"} />
+        <HighlightFont text={"Power of Code"} />
       </div>
 
       <p className='text-center text-richblack-300 text-sm text-[16px] mt-3'>
